@@ -9,16 +9,22 @@ copy:
 	@cp -r ../../$(folder_name)/ service
 	@cp Dockerfile service/Dockerfile
 
-build: 
+build: buildjar builddocker
 
 buildjar: 
 	cd service
-	mvn clean
+	mvn clean package
+	cd ..
 
 builddocker: 
 	@docker build ./service -t $(image_name):$(tag)
 
-clean: 
+cleantarget:
+	cd service
+	mvn clean
+	cd ..
+
+clean: cleantarget
 	@rm -rf service
 
 run: 

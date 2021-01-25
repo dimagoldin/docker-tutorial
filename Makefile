@@ -7,22 +7,14 @@ make_subfolders = $(for dir in $(SUBDIRS); do echo Performing make $(1) on path 
 all: build
 
 clean:
-	cd java_microservice
-	mvn clean
-	cd ../nodejs_microservice
-	rm -rf node_modules
-	cd ..
 	for dir in $(SUBDIRS); do
 		echo Cleaning path $${dir}
 		$(MAKE) $(silence) -C $${dir} clean
 	done
 	# $(call make_subfolders, clean)
 
+
 build:
-	cd java_microservice
-	mvn --version
-	mvn clean package
-	cd ..
 	for dir in $(SUBDIRS); do
 		echo Building path $${dir}
 		$(MAKE) $(silence) -C $${dir} all
