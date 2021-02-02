@@ -1,0 +1,8 @@
+docker ps
+docker ps -a
+docker logs <container id/name>
+docker logs <container id/name> -f
+docker exec -it <container name> sh 
+docker build . -t <registry prefix>\<image name>:<version>
+docker run --name <aName> -p <localport>:<dockerport> --rm <imageName:version>
+docker images

@@ -16,7 +16,7 @@ ___
 
 #### Chapter 1 - Basic Docker
 ___
-> Shows a basic Dockerfile for java and nodejs microservices and the build process.
+> Shows a basic Dockerfile for java and nodejs microservices and the build process. Shows a simple way to reduce image size
 
 **Steps**:
 1. ```cd 1_basic_docker```
@@ -25,7 +25,29 @@ ___
 1. ```make clean``` - removes all junk created for this chapter
 
 
+#### Chapter 2 -
+> Shows how to use docker to build your code as well as test it
 
+#### Chapter 3 -
+> Introduces the concept Multi-Stage docker
+
+#### Chapter 4 -
+> Optimizing your dockerfile to reduce size even more and remove unneeded code
+
+#### Chapter 5 -
+> Debugging inside docker
+
+#### Chapter 6 -
+> docker-compose overview
+
+#### Chapter 7 - 
+> docker-compose for development
+
+#### Chapter 8 - 
+> CMD vs ENTRYPOINT 
+
+#### Chapter 9 -
+> Maximizing reusability
 ___
 # Prerequisites
 1. Ubuntu

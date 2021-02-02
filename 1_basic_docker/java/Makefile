@@ -1,31 +1,28 @@
+.ONESHELL:
 folder_name=java_microservice
 tag=java
 image_name=basic_docker
 
 
-all: clean copy builddocker
+all: clean copy build
 
-copy: 
+copy: clean
 	@cp -r ../../$(folder_name)/ service
 	@cp Dockerfile service/Dockerfile
 
-build: buildjar builddocker
-
-buildjar: 
+buildjar:
 	cd service
+	pwd
 	mvn clean package
 	cd ..
 
-builddocker: 
+builddocker:
 	@docker build ./service -t $(image_name):$(tag)
 
-cleantarget:
-	cd service
-	mvn clean
-	cd ..
+build: buildjar builddocker
 
-clean: cleantarget
+clean:
 	@rm -rf service
 
 run: 
-	@docker run --rm $(image_name):java 
+	@docker run -p 8080:8080 --name basic_docker_java --rm $(image_name):java 
