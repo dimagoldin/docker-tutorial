@@ -1,6 +1,6 @@
 folder_name = nodejs_microservice
 tag = nodejs
-image_name = basic_docker_ch1
+image_name = basic_docker_ch2
 
 
 all: clean copy builddocker
@@ -8,11 +8,10 @@ all: clean copy builddocker
 copy: 
 	@cp -r ../../$(folder_name)/ service
 	@cp Dockerfile service/Dockerfile
+	@cp .dockerignore service/.dockerignore
 
 builddocker: 
 	@docker build ./service -t $(image_name):$(tag)
-	
-build: builddocker
 
 clean: 
 	@rm -rf service

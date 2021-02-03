@@ -3,6 +3,7 @@ FROM node:14.15
 
 RUN mkdir /app
 
+# Copy all local code into the docker
 COPY . .
 
 RUN npm install
