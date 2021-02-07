@@ -13,6 +13,11 @@ clean:
 	done
 	# $(call make_subfolders, clean)
 
+copy:
+	for dir in $(SUBDIRS); do
+		echo Cleaning path $${dir}
+		$(MAKE) $(silence) -C $${dir} copy
+	done
 
 build:
 	for dir in $(SUBDIRS); do

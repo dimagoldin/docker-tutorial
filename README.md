@@ -26,10 +26,12 @@ ___
 
 
 #### Chapter 2 -
-> Shows how to use docker to build your code as well as test it
+> Build Jar as part of the docker. 
+> Optimizing docker-rebuilding with dependency installing as a seperate stage.
 
 #### Chapter 3 -
 > Introduces the concept Multi-Stage docker
+> Hows its used to reduce size and test your code during image build
 
 #### Chapter 4 -
 > Optimizing your dockerfile to reduce size even more and remove unneeded code

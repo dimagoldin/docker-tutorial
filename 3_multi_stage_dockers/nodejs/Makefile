@@ -1,6 +1,6 @@
 folder_name = nodejs_microservice
 tag = nodejs
-image_name = basic_docker_ch2
+image_name = basic_docker_ch3
 
 
 all: clean copy builddocker
