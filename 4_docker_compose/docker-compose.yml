@@ -14,7 +14,8 @@ services:
       - mongodb
     volumes:
       - ./crud-service/:/app
-    command: npm run debug
+    # command: npm run debug
+    command: node --inspect=0.0.0.0:9229 index.js
 
 
   mongodb:
