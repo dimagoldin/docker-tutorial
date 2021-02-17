@@ -1,7 +1,7 @@
 FROM node:14.15
 # FROM node:14.15-alpine
 
-RUN mkdir /app
+WORKDIR /app
 
 # Copy all local code into the docker
 COPY . .

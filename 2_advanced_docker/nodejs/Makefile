@@ -3,7 +3,7 @@ tag = nodejs
 image_name = basic_docker_ch2
 
 
-all: clean copy builddocker
+all: clean copy build
 
 copy: 
 	@cp -r ../../$(folder_name)/ service
@@ -18,5 +18,8 @@ build: builddocker
 clean: 
 	@rm -rf service
 
+size:
+	@docker images --format "{{.Repository}} {{.Tag}} {{.Size}}" | grep ch2 | grep nodejs
+
 run: 
-	@docker run --env FORCE_COLOR=1 --name $(image_name)_$(tag) --rm $(image_name):$(tag)
+	@docker run --name $(image_name)_$(tag) --port 3000:3000 --rm $(image_name):$(tag)

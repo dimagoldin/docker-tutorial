@@ -1,8 +1,8 @@
 FROM node:14.15-alpine
 
-RUN mkdir /app
+WORKDIR /app
 
-COPY package.json package.json
+COPY package.json .
 
 RUN npm install --only=prod
 
