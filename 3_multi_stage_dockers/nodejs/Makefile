@@ -19,4 +19,4 @@ clean:
 	@rm -rf service
 
 run: 
-	@docker run --env FORCE_COLOR=1 --name $(image_name)_$(tag) --rm $(image_name):$(tag)
+	@docker run --name $(image_name)_$(tag) --port 8080:8080 --rm $(image_name):$(tag)

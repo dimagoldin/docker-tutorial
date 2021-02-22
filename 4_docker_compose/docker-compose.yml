@@ -1,21 +1,33 @@
-version: '3.0'
+version: '3.9'
 
 services:
-  crud-service:
-    container_name: crud-service
-    build:
-      context: ./crud-service/
+  todo-service:
+    container_name: todo-service
+    hostname: todo-service
+    image: todo_service
     environment:
     - MONGODB_URI=mongodb://mongodb:27017/todo
     ports:
-      - 3000:3000
-      - 9229:9229
+      - 8080:3000
     depends_on: 
       - mongodb
-    volumes:
-      - ./crud-service/:/app
-    # command: npm run debug
-    command: node --inspect=0.0.0.0:9229 index.js
+    deploy:
+      restart_policy:
+        condition: any
+    
+
+  other-service:
+    container_name: other-service
+    image: other_service
+    environment:
+    - CRUD_SERVICE_URL=http://todo-service:8080
+    ports:
+      - 4000:4000
+    depends_on: 
+      - todo-service
+    deploy:
+      restart_policy:
+        condition: any
 
 
   mongodb:
@@ -28,13 +40,3 @@ services:
       - 27017:27017
     # volumes:
     #   - ./mongo-volume:/data/db
-
-  ch1_java:
-    image: basic_docker_ch1:java
-    ports:
-      - 8080:8080
-  
-  ch2_java:
-    image: basic_docker_ch2:java
-    ports:
-      - 8081:8080

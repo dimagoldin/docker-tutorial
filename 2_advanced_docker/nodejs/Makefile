@@ -22,4 +22,4 @@ size:
 	@docker images --format "{{.Repository}} {{.Tag}} {{.Size}}" | grep ch2 | grep nodejs
 
 run: 
-	@docker run --name $(image_name)_$(tag) --port 3000:3000 --rm $(image_name):$(tag)
+	@docker run --name $(image_name)_$(tag) --port 8080:8080 --rm $(image_name):$(tag)

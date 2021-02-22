@@ -13,3 +13,11 @@ startmongo:
 
 stop:
 	@docker-compose down -v
+
+build: buildservice1 buildservice2
+
+buildservice1:
+	@docker build ./crud-service -t todo_service
+	
+buildservice2:
+	@docker build ./other-service -t other_service

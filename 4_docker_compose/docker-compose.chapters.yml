@@ -1,0 +1,32 @@
+version: '3.0'
+
+services:
+  ch1_java:
+    image: basic_docker_ch1:java
+    ports:
+      - 3000:8080
+    
+  ch1_node:
+    image: basic_docker_ch1:nodejs
+    ports:
+      - 3001:8080
+  
+  ch2_java:
+    image: basic_docker_ch2:java
+    ports:
+      - 3020:8080
+    
+  ch2_node:
+    image: basic_docker_ch2:nodejs
+    ports:
+      - 3021:8080
+
+  ch3_java:
+    image: basic_docker_ch3:java
+    ports:
+      - 3030:8080
+    
+  ch3_node:
+    image: basic_docker_ch3:nodejs
+    ports:
+      - 3031:8080
