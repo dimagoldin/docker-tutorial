@@ -1,0 +1,19 @@
+docker build . -t basic_docker_ch1:bash
+docker run basic_docker_ch1:bash
+docker ps 
+docker ps -a
+docker logs
+docker run basic_docker_ch1:bash
+docker run --name basic_docker_ch1_bash basic_docker_ch1:bash
+docker run --name basic_docker_ch1_bash basic_docker_ch1:bash #error
+docker start basic_docker_ch1_bash
+docker logs basic_docker_ch1_bash
+docker run -it --entrypoint sh basic_docker_ch1:bash
+docker commit basic_docker_ch1_bash tmp_docker
+docker run -it --entrypoint sh tmp_docker
+
+#ARGS
+# ENV FOLDER_PATH=persist
+# ARG SCRIPT_NAME=script.sh
+# COPY ${SCRIPT_NAME} script.sh
+docker run -d -v ${PWD}/persist:/script/persist basic_docker_ch1:bash
