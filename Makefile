@@ -28,6 +28,7 @@ build:
 
 build1: 
 	$(MAKE) $(silence) -C 1_basic_docker/java all
+	$(MAKE) $(silence) -C 1_basic_docker/nodejs all
 
 run1:
 	$(MAKE) $(silence) -C 1_basic_docker/java run

@@ -1,0 +1,4 @@
+make build
+docker-compose up -d 
+docker-compose -f docker-compose.debug.yml up -d
+curl -i -X POST -H "Content-Type: application/json" -d '{"text":"hi", "user": "dima"}' http://localhost:8080

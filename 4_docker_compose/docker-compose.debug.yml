@@ -1,5 +1,3 @@
-version: '3.0'
-
 services:
   crud-service:
     container_name: crud-service
@@ -17,6 +15,19 @@ services:
     # command: npm run debug
     command: node --inspect=0.0.0.0:9229 index.js
 
+  ch1_java:
+    image: basic_docker_ch1:java
+    ports:
+      - 3001:8080
+      - 5005:5005
+    command: java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005 -jar app.jar
+
+  ch1_nodejs:
+    image: basic_docker_ch1:nodejs
+    ports:
+      - 3002:8080
+      - 9230:9229
+    entrypoint: node --inspect=0.0.0.0:9229 index.js
 
   mongodb:
     hostname: mongodb

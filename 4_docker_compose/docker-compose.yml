@@ -20,7 +20,7 @@ services:
     container_name: other-service
     image: other_service
     environment:
-    - CRUD_SERVICE_URL=http://todo-service:8080
+    - CRUD_SERVICE_URL=http://todo-service:3000
     ports:
       - 4000:4000
     depends_on: 
