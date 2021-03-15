@@ -19,4 +19,7 @@ clean:
 	@rm -rf service
 
 run: 
-	@docker run --name $(image_name)_$(tag) --port 8080:8080 --rm $(image_name):$(tag)
+	@docker run -d --name $(image_name)_$(tag) -p 8080:8080 --rm $(image_name):$(tag)
+
+size:
+	@docker images --format "{{.Repository}} {{.Tag}} {{.Size}}" | grep basic_docker_ch3 | sort
